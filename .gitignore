@@ -10,3 +10,10 @@ eclipse
 *.iml
 *.ipr
 *.iws
+
+# Play
+*.pid
+logs
+lib
+tmp
+modules

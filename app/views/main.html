@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Minecraft Front-End</title>
+    <meta name="description" content="Minecraft Server Manager">
+    <meta name="author" content="Sam Le Barbare">
+
+    <!-- Les styles -->
+    <link href="/public/stylesheets/bootstrap.css" rel="stylesheet">
+    <style>
+        @font-face {
+          font-family: 'Goudy Bookletter 1911';
+          font-style: normal;
+          font-weight: normal;
+          src: local('Goudy Bookletter 1911'), local('GoudyBookletter1911'), url('http://themes.googleusercontent.com/static/fonts/goudybookletter1911/v3/l5lwlGTN3pEY5Bf-rQEuIMvsW7MYFVYsuLRj6jSUyb0.woff') format('woff');
+        }
+     
+
+
+/* Tweak navbar brand link to be super sleek
+-------------------------------------------------- */
+.navbar-fixed-top .brand {
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 20px;
+  float: right;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+  -webkit-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+          transition: all .2s linear;
+}
+.navbar-fixed-top .brand:hover {
+  text-decoration: none;
+}
+
+
+/* Space out sub-sections more
+-------------------------------------------------- */
+section {
+  padding-top: 60px;
+}
+
+/* Faded out hr */
+hr.soften {
+  height: 1px;
+  margin: 54px 0;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  border: 0;
+}
+
+
+
+
+
+
+
+/* Quick links
+-------------------------------------------------- */
+.quick-links {
+  min-height: 30px;
+  padding: 5px 20px;
+  margin: 36px 0;
+  list-style: none;
+  text-align: center;
+  overflow: hidden;
+}
+.quick-links li {
+  display: inline;
+  margin: 0 5px;
+  color: #999;
+}
+.quick-links .github-btn,
+.quick-links .tweet-btn,
+.quick-links .follow-btn {
+  position: relative;
+  top: 5px;
+}
+
+
+/* Marketing section of Overview
+-------------------------------------------------- */
+.marketing .row {
+  margin-bottom: 9px;
+}
+.marketing h1 {
+  margin: 36px 0 27px;
+  font-size: 40px;
+  font-weight: 300;
+  text-align: center;
+}
+.marketing h2,
+.marketing h3 {
+  font-weight: 300;
+}
+.marketing h2 {
+  font-size: 22px;
+}
+.marketing p {
+  margin-right: 10px;
+}
+.marketing .bs-icon {
+  float: left;
+  margin: 7px 10px 0 0;
+  opacity: .8;
+}
+.marketing .small-bs-icon {
+  float: left;
+  margin: 4px 5px 0 0;
+}
+
+
+
+/* Footer
+-------------------------------------------------- */
+.footer {
+  margin-top: 45px;
+  padding: 35px 0 36px;
+  border-top: 1px solid #e5e5e5;
+}
+.footer p {
+  margin-bottom: 0;
+  color: #555;
+}
+
+.like_button_dark .connect_widget_text a {
+color: black;
+}
+
+
+        
+        
+    </style>
+        
+    <script src="/public/javascripts/jquery.js"></script>
+    <script src="/public/javascripts/bootstrap-dropdown.js"></script>
+    <script src="/public/javascripts/bootstrap-modal.js"></script>
+    <script src="/public/javascripts/bootstrap-button.js"></script>
+    <script src="/public/javascripts/bootstrap-carousel.js"></script>
+    <script>
+    </script>
+  </head>
+
+  <body style="font-family: 'Goudy Bookletter 1911';">
+    <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container" style="width: auto;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="@{Application.index()}">Home</a>
+        <div class="nav-collapse">  
+            <ul class="nav pull-left">
+            <li><a href="@{Application.About()}">About</a></li>
+            <li class="divider-vertical"></li>       
+          </ul>
+          <ul class="nav pull-right">
+            <li><a href="@{Minecraft.index()}">Play!</a></li>
+            <li class="divider-vertical"></li>       
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div>
+  <div class="row">
+      <div class="container">
+        #{doLayout /}
+      
+    
+      <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
+      </footer>
+          </div>
+    </div>
+</body>
+</html>

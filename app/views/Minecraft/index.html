@@ -1,0 +1,80 @@
+#{extends 'minecraft.html' /}
+#{set title:'Home' /}
+<div class="hero-unit">
+    <h1>${mcs.name}</h1>
+</div>
+<script>
+    $('#myCarousel').carousel();
+</script>  
+<div id="myCarousel" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    #{list items:images,as:'i'}
+    <div class="item #{if i_index==1}active#{/if}"><img src="/public/images/${i.path}" alt>
+    <div class="carousel-caption">
+                  <h4>${i.text}</h4>
+                  <p>${i.desc}</p>
+                </div>
+    
+    </div>
+    #{/list}
+  </div>
+  <!-- Carousel nav -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+  
+<legend>Joueurs en lignes</legend>
+<table class="table table-striped">
+    <thead>
+        <tr>           
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        #{list items:onlineCrafters,as:'c'}
+        <tr> 
+            <td><img src="http://minotar.net/avatar/${c}/18" /> ${c}</td>           
+            <td>
+                <div class="btn-group">
+                    <a class="btn btn-primary" href="#"><i class="icon-cog icon-white"></i> </a>
+                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#whispTo${c_index}" data-toggle="modal"><i class="icon-pencil"></i> Chuchoter</a></li>  
+                        <li><a href="@{minecraft.teleportToPlayer(user,c)}" data-toggle="modal"><i class="icon-text-width"></i> Se téléporter</a></li> 
+                    </ul>
+                </div> 
+            </td>
+        </tr> 
+        #{/list}
+    </tbody>
+</table>
+
+
+#{list items:onlineCrafters,as:'c'}
+<div id="whispTo${c_index}"  class="modal hide fade" style="display: none; ">
+<div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Chuchoter à ${c}</h3>
+    </div>
+    #{form @Minecraft.WhispToPlayer(c)}
+    <div class="modal-body">
+        <fieldset>
+            <div class="control-group">
+                <div class="controls">
+                    <label class="control-label" for="message">Ton message</label>
+                    <input name="message" type="text" class="input-xlarge" id="message">
+                    <p class="help-block">Attention, le message sera envoyé par Rcon</p>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+        <a href="#" class="btn" data-dismiss="modal">Annuler</a>
+    </div>
+    #{/form}
+</div>
+#{/list}

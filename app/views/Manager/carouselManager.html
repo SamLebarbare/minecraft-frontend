@@ -1,0 +1,37 @@
+#{extends 'manager.html' /}
+#{set title:'Home' /}
+<div class="hero-unit">
+    <h1>Minecraft Server Carousel Manager</h1>
+</div>
+<div class="form-actions">
+    <a href="#newImage" class="btn btn-primary" data-toggle="modal">Add an image to the carousel</a>
+</div>
+<div id="newImage" class="modal hide fade" style="display: none; ">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3></h3>
+    </div>
+    #{form @Manager.newCarouselImage(),method:'POST', enctype:'multipart/form-data'}
+    <div class="modal-body">
+        <fieldset>
+            <div class="control-group">                
+                <div class="controls">
+                    <label class="control-label" for="description">Text</label>
+                    <input name="text" type="text" class="input-xlarge" id="description">
+                    <p class="help-block">Aide</p>
+                </div>
+                <div class="controls">
+                    <label class="control-label" for="fichier">Fichier image</label>
+                    <input name="file" type="file" class="input-xlarge" id="fichier">
+                    <p class="help-block">Aide</p>
+                </div>                               
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Créer</button>
+        <a href="#" class="btn" data-dismiss="modal">Annuler</a>
+    </div>
+    #{/form}
+</div>

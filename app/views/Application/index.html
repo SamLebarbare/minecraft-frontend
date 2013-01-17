@@ -1,0 +1,41 @@
+#{extends 'main.html' /}
+#{set title:mcs.name /}
+<div class="hero-unit">
+    <h1>${mcs.name}</h1>
+</div>
+<script>
+    $('#myCarousel').carousel();
+</script>  
+<div id="myCarousel" class="carousel slide">
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    #{list items:images,as:'i'}
+    <div class="item #{if i_index==1}active#{/if}"><img src="/public/images/${i.path}" alt>
+    <div class="carousel-caption">
+                  <h4>${i.text}</h4>
+                  <p>${i.desc}</p>
+                </div>
+    
+    </div>
+    #{/list}
+  </div>
+  <!-- Carousel nav -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+  
+<legend>Joueurs en lignes</legend>
+<table class="table table-striped">
+    <thead>
+        <tr>           
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        #{list items:onlineCrafters,as:'c'}
+        <tr> 
+            <td><img src="http://minotar.net/avatar/${c}/18" /> ${c}</td>                       
+        </tr> 
+        #{/list}
+    </tbody>
+</table>

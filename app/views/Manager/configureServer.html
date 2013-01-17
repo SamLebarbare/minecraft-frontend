@@ -1,0 +1,40 @@
+#{extends 'manager.html' /}
+#{set title:'Home' /}
+<div class="hero-unit">
+    <h1>Minecraft Server Configuration</h1>
+</div>
+#{form @manager.changeConfiguration()}  
+<fieldset>
+    <div class="control-group">
+        <div class="controls">
+            <div class="controls">     
+                <label class="control-label" for="codeCalibre">Name</label>            
+                <input name="name" class="span2" id="codeCalibre" size="3" type="text" value="${mcs.name}">
+            </div> 
+        </div>
+        <div class="controls">     
+            <label class="control-label" for="codeCalibre">Host IP</label>            
+            <input name="host" class="span2" id="codeCalibre" size="3" type="text" value="${mcs.hostIp}">
+        </div> 
+    </div>
+    <div class="controls">                  
+        <label class="control-label" for="description">RCON Port</label>
+        <input name="port" type="text" class="input-xlarge" id="description" value="${mcs.port}">
+        <p class="help-block"></p>
+    </div>
+    <div class="controls">                  
+        <label class="control-label" for="description">RCON Password</label>
+        <input name="pass" type="password" class="input-xlarge" id="description" value="${mcs.password}">
+        <p class="help-block"></p>
+    </div>   
+</fieldset>
+
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary">Modifier</button>
+</div>
+#{/form}
+#{form @manager.testRcon()}  
+<div class="modal-footer">
+    <button type="submit" class="btn btn-primary">Test</button>
+</div>
+#{/form}

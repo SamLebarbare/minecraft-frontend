@@ -1,0 +1,28 @@
+#{extends 'manager.html' /}
+#{set title:'Home' /}
+<legend>Whitelisted players</legend>
+<table class="table table-striped">
+    <thead>
+        <tr>           
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        #{list items:wl.players,as:'p'}
+        <tr> 
+            <td>${p.nickname}</td>           
+            <td>
+                <div class="btn-group">
+                    <a class="btn btn-primary" href="#"><i class="icon-cog icon-white"></i> </a>
+                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" data-toggle="modal"><i class="icon-pencil"></i> Edit</a></li>  
+                        <li><a href="@{Manager.removeFromWhitelist(mcs.id,p.nickname)}" data-toggle="modal"><i class="icon-remove-circle"></i> Remove</a></li>  
+                    </ul>
+                </div> 
+            </td>
+        </tr> 
+        #{/list}
+    </tbody>
+</table>

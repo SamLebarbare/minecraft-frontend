@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <title>Minecraft Server Manager</title>
+    <meta name="description" content="Minecraft Server Manager">
+    <meta name="author" content="Sam Le Barbare">
+
+    <!-- Les styles -->
+    <link href="/public/stylesheets/bootstrap.css" rel="stylesheet">
+    <script src="/public/javascripts/jquery.js"></script>
+    <script src="/public/javascripts/bootstrap-dropdown.js"></script>
+    <script src="/public/javascripts/bootstrap-modal.js"></script>
+    <script src="/public/javascripts/bootstrap-button.js"></script>
+    <script>
+    </script>
+  </head>
+
+  <body>
+    <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container" style="width: auto;">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">Minecraft Server Manager</a>
+        <div class="nav-collapse">         
+          <ul class="nav pull-right">
+            <li><a href="#"></a></li>
+            <li class="divider-vertical"></li>       
+          </ul>
+        </div><!-- /.nav-collapse -->
+      </div>
+    </div><!-- /navbar-inner -->
+  </div>
+  <div class="row">
+    <div class="span3">
+        <div class="well" style="padding: 8px 0;">
+            <ul class="nav nav-list">
+                #{secure.check 'admin'}
+                <li class="nav-header">Minecraft Server</li>               
+                <li><a href="@{manager.configureServer()}"><i class="icon-book"></i> Configuration</a></li> 
+                #{/secure.check}
+                <li class="nav-header">Website</li>
+                <li><a href="@{manager.carouselManager()}"><i class="icon-camera"></i> Carousel news</a></li>
+                <li class="nav-header">Infrastructure</li>
+                <li><a href="#"><i class="icon-camera"></i> City's</a></li>
+                <li class="nav-header">Crafter</li>
+                <li><a href="@{manager.whitelist()}"><i class="icon-user"></i> Whitelist</a></li>
+            </ul>
+        </div> 
+    </div>
+      <div class="span12">
+          #{doLayout /}
+      </div>
+</div>
+</body>
+</html>

@@ -14,23 +14,32 @@ For logged crafter only :
 * Use Teleport
 * Change gamemod
 
+Technical infos:
+
+* Use a custom Valve RCON for remote command from Java Code to Minecraft Server
+* Play!Framework allow you to develop new features
+* Use Twitter Bootstrap for easy CSS customization
+
 Install
 -------
 
 This tool is based on the Java Play!Framework version 1.2.X
 
     https://github.com/playframework/play/
-    
-when the framework is ready don't forget to : 
+
+follow installation instruction,    
+when the framework is ready, clone this repository and run : 
     
     play deps
     
 Configure
 ---------
-
-Edit the config file in :
+Enable RCON in your minecraft server.properties file and
+edit the front-end config file in :
 
     conf/application.conf
+
+Check DB lines for using MySql as backend for exemple
 
 Run
 ---
